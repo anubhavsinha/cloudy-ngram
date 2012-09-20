@@ -12,9 +12,10 @@ memcached = {}# this to be replaced
 #AWS is not free
 #Heroku wins!
 
-def doc_frequency(ngram):
+def DF(ngram):
     """
     returns the number of documents from the web, which contains a particular ngram
+    also called Document Frequency
     """
     if ngram in memcached:
         return memcached.get(ngram)
@@ -44,11 +45,11 @@ def log_IDF(ngram):
     This function returns log (1 / document frequency)
     """
     total_no_of_web_pages = 25270000000.0 # number of pages returned by searching for "the" or "a"
-    return math.log(total_no_of_web_pages/doc_frequency(ngram),10)
+    return math.log(total_no_of_web_pages/DF(ngram),10)
     
 
-print ngram_IDF("ancient polymath")# cold from google
-print ngram_IDF("ancient polymath")# hot from cache
+print log_IDF("ancient polymath")# cold from google
+print log_IDF("ancient polymath")# hot from cache
 
 #to-do
 #explore octopy map-reduce implementation
