@@ -14,8 +14,9 @@ def doc_frequency(ngram):
     #more headers may be set, like gzip deflate etc.
     response = urllib2.urlopen(request)
     doc = response.read()
-    f = open("dump.html","w")
-    f.write(doc)
+    #f = open("dump.html","w")
+    #f.write(doc)
+    
     #structure to scrape
     #<div id=resultStats>About 554,000,000 results<nobr>  (0.17 seconds)&nbsp;</nobr></div>
     regex = r'<div id=resultStats>About (.*?) results'
