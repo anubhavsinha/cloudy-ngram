@@ -34,7 +34,7 @@ def ngram_IDF(ngram):
     This function returns log (1 / document frequency)
     """
     total_no_of_web_pages = doc_frequency("a")#number of pages returned by searching for "the"
-    return math.log(total_no_of_web_pages/doc_frequency(ngram),2)
+    return math.log(total_no_of_web_pages/doc_frequency(ngram),10)
     
 
 print ngram_IDF("the")
