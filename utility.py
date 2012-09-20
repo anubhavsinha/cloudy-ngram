@@ -17,7 +17,8 @@ def frequency(ngram):
 
 frequency("who is there")
 
-def ngram_probability(ngram):
+def ngram_IDF(ngram):
+    """calculates the Inverse Document Frequency of a ngram in the Web corpus"""
     total_no_of_web_pages = 25270000000.0#number of pages returned by searching for "the"
     return frequency(ngram)/total_no_of_web_pages
     
