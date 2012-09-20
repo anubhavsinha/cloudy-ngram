@@ -5,7 +5,12 @@ import urllib2
 import re
 import math
 
+memcached = {}# this to be replaced with an actual memcached server
+
 def doc_frequency(ngram):
+    if ngram in memcached:
+        return memcached.get(ngram)
+    
     words = ngram.split()
     query = '+'.join(words)
     #https://www.google.co.in/search?q=a&ie=utf-8&oe=utf-8&aq=t&rls=org.mozilla:en-GB:official&client=firefox-a
@@ -22,8 +27,9 @@ def doc_frequency(ngram):
     regex = r'<div id=resultStats>About (.*?) results'
     match = re.search(regex,doc)
     result = match.group(1)
-    result = result.replace(',','')
-    return float(result)
+    result = float(result.replace(',',''))
+    memcached[ngram] = result
+    return result
 
 #print doc_frequency("the")
 
@@ -40,6 +46,8 @@ def ngram_IDF(ngram):
     
 
 print ngram_IDF("ancient polymath")
+print ngram_IDF("ancient polymath")
+
 #to-do
 #explore octopy map-reduce implementation
 #write two functions , one for get and one for post, for general purpose scraping
