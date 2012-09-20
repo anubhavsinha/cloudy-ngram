@@ -4,13 +4,15 @@ import urllib2
 import re
 import math
 
-memcached = {}# this to be replaced
-#with an actual high availability memcached server
-#eg. google app engine, heroku, aws
-#further dev, NLTK may be needed,
-#but GAE doesn't support NLTK
-#AWS is not free
-#Heroku wins!
+memcached = {}
+""" this to be replaced
+with an actual high availability memcached server
+eg. google app engine, heroku, aws
+further dev, NLTK may be needed,
+but GAE doesn't support NLTK
+AWS is not free
+guess Heroku wins!
+"""
 
 def df(ngram):
     """
