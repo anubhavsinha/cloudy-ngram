@@ -12,7 +12,7 @@ memcached = {}# this to be replaced
 #AWS is not free
 #Heroku wins!
 
-def DF(ngram):
+def df(ngram):
     """
     returns the number of documents from the web, which contains a particular ngram
     also called Document Frequency
@@ -38,7 +38,7 @@ def DF(ngram):
     memcached[ngram] = result
     return result
 
-def log_IDF(ngram):
+def log_idf(ngram):
     """
     computes the log base 10 of Inverse Document Frequency of a ngram in the Web corpus
     use case: relevancy = term frequency * log (1 / document frequency)#TF*IDF
@@ -48,8 +48,8 @@ def log_IDF(ngram):
     return math.log(total_no_of_web_pages/DF(ngram),10)
     
 
-print log_IDF("ancient polymath")# cold from google
-print log_IDF("ancient polymath")# hot from cache
+print log_idf("ancient polymath")# cold from google
+print log_idf("ancient polymath")# hot from cache
 
 #to-do
 #explore octopy map-reduce implementation
