@@ -45,8 +45,8 @@ def ngram_IDF(ngram):
     return math.log(total_no_of_web_pages/doc_frequency(ngram),10)
     
 
-print ngram_IDF("ancient polymath")
-print ngram_IDF("ancient polymath")
+print ngram_IDF("ancient polymath")#cold
+print ngram_IDF("ancient polymath")#hot
 
 #to-do
 #explore octopy map-reduce implementation
