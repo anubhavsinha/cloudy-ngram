@@ -4,11 +4,7 @@ import urllib2
 import re
 import math
 
-
-
 memcached = {}# this to be replaced with an actual memcached server
-
-
 
 def doc_frequency(ngram):
     """
@@ -34,8 +30,6 @@ def doc_frequency(ngram):
     
     memcached[ngram] = result
     return result
-
-
 
 def ngram_IDF(ngram):
     """
