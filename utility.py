@@ -39,8 +39,8 @@ def doc_frequency(ngram):
 
 def ngram_IDF(ngram):
     """
-    calculates the Inverse Document Frequency of a ngram in the Web corpus
-    relevancy = term frequency * log (1 / document frequency)
+    computes the Inverse Document Frequency of a ngram in the Web corpus
+    relevancy = term frequency * log (1 / document frequency)#TF-IDF
     This function returns log (1 / document frequency)
     """
     total_no_of_web_pages = 25270000000.0 # number of pages returned by searching for "the" or "a"
