@@ -3,7 +3,7 @@
 #step1: visit google search url with the query string
 import urllib2
 
-def frequency(ngram):
+def doc_frequency(ngram):
     words = ngram.split()
     query = '+'.join(words)
     request = urllib2.Request("http://google.com/search?q="+'"'+query+'"')
@@ -15,11 +15,11 @@ def frequency(ngram):
     #to do
     #extract <div id="resultStats"> contents
 
-frequency("who is there")
+doc_frequency("who is there")
 
 def ngram_IDF(ngram):
     """calculates the Inverse Document Frequency of a ngram in the Web corpus"""
     total_no_of_web_pages = 25270000000.0#number of pages returned by searching for "the"
-    return frequency(ngram)/total_no_of_web_pages
+    return doc_frequency(ngram)/total_no_of_web_pages
     
 
