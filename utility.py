@@ -40,3 +40,9 @@ def ngram_IDF(ngram):
     
 
 print ngram_IDF("ancient polymath")
+#to-do
+#explore octopy map-reduce implementation
+#write two functions , one for get and one for post, for general purpose scraping
+#will use for seagator
+#also, explore twisted..
+#goodnight!
