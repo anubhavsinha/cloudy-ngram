@@ -37,10 +37,10 @@ def doc_frequency(ngram):
     memcached[ngram] = result
     return result
 
-def ngram_IDF(ngram):
+def log_IDF(ngram):
     """
-    computes the Inverse Document Frequency of a ngram in the Web corpus
-    relevancy = term frequency * log (1 / document frequency)#TF-IDF
+    computes the log base 10 of Inverse Document Frequency of a ngram in the Web corpus
+    use case: relevancy = term frequency * log (1 / document frequency)#TF-IDF
     This function returns log (1 / document frequency)
     """
     total_no_of_web_pages = 25270000000.0 # number of pages returned by searching for "the" or "a"
