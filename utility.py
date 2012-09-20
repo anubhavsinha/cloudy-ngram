@@ -3,6 +3,7 @@
 #step1: visit google search url with the query string
 import urllib2
 import re
+import math
 
 def doc_frequency(ngram):
     words = ngram.split()
@@ -22,12 +23,18 @@ def doc_frequency(ngram):
     result = result.replace(',','')
     return float(result)
 
-print doc_frequency("the")
+#print doc_frequency("the")
+
+
 
 def ngram_IDF(ngram):
-    """calculates the Inverse Document Frequency of a ngram in the Web corpus"""
-    total_no_of_web_pages = 25270000000.0#number of pages returned by searching for "the"
-    return doc_frequency(ngram)/total_no_of_web_pages
+    """
+    calculates the Inverse Document Frequency of a ngram in the Web corpus
+    relevancy = term frequency * log (1 / document frequency)
+    This function returns log (1 / document frequency)
+    """
+    total_no_of_web_pages = doc_frequency("a")#number of pages returned by searching for "the"
+    return math.log(total_no_of_web_pages/doc_frequency(ngram),2)
     
 
 print ngram_IDF("the")
