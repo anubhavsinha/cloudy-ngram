@@ -45,7 +45,7 @@ def log_idf(ngram):
     This function returns log (1 / document frequency)
     """
     total_no_of_web_pages = 25270000000.0 # number of pages returned by searching for "the" or "a"
-    return math.log(total_no_of_web_pages/DF(ngram),10)
+    return math.log(total_no_of_web_pages/df(ngram),10)
     
 
 print log_idf("ancient polymath")# cold from google
