@@ -8,4 +8,7 @@ As of now, to get the IDF value taking all of the web as your corpus, your only 
 which is a 25Gb size corpus and needs heavy distributed processing (MapReduce etc) to get the IDF.  
 
 Cloudy-ngram makes it easy for everyone to have a free, fast IDF lookup on the cloud.    
-It will cache the IDF values eventually with use.
+It will cache the IDF values eventually with use.  
+
+
+###tf-idf approach from information theory perspective
