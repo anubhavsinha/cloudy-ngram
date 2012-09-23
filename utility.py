@@ -1,10 +1,27 @@
 #cloudy-ngram/utility.py
-
 import urllib2
 import re
 import math
 
-memcached = {}
+import sqlite3
+conn = sqlite3.connect('ngrams.db')
+c = conn.cursor()
+"""
+#need to execute just once
+c.execute('''create table ngrams
+            (ngram text, logIDF real)''')
+"""
+def store(ngram,logIDF):    
+    c.execute("insert into ngrams values ('%s','%s')"%(ngram,logIDF))
+    conn.commit()
+    
+def query_(ngram):
+    print 'query-ing...'
+    value = c.execute("select logIDF from ngrams where ngram = '%s'"%ngram).fetchone()
+    if value:
+        return value[0]
+
+#memcached = {}
 """ this to be replaced
 with an actual high availability memcached server
 eg. google app engine, heroku, aws
@@ -19,8 +36,14 @@ def df(ngram):
     returns the number of documents from the web, which contains a particular ngram
     also called Document Frequency
     """
+    """
     if ngram in memcached:
         return memcached.get(ngram)
+    """
+    value = query_(ngram)
+    if value:
+        print 'from cache...'
+        return value
     
     words = ngram.split()
     query = '+'.join(words)
@@ -36,8 +59,9 @@ def df(ngram):
     match = re.search(regex,doc)
     result = match.group(1)
     result = float(result.replace(',',''))
-    
-    memcached[ngram] = result
+    print 'storing..'
+    store(ngram,result)
+    #memcached[ngram] = result
     return result
 
 def log_idf(ngram):
