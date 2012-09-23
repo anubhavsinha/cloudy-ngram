@@ -18,4 +18,10 @@ def text_from_url(url):
     #f.close()
 
 url = 'http://en.wikipedia.org/wiki/.NET_Framework'
-text_from_url(url)
+text = text_from_url(url)
+
+#step1. get list of sentences
+#step2. for each term(unigram, bigram,...) in a sentence
+#get the tfidf score
+#sort by tf idf..
+#choose top 10 terms and spit the sentences in which they occur
